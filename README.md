@@ -1,31 +1,30 @@
 <h1 align="center">
-  AutoSecurityy's Top 10 Automotive Cybersecurity Vulnerabilities
+  Top 10 Automotive Vulnerabilities
 </h1>
 <p align="center">
-  <strong>Draft - Accepting Feedbacks
+  <strong>In Progress
 </p>
 
 <h2 align="center">
   About the Project
 </h2>
-As part of the <b>AutoSecurityy</b> community initiative, we are building a publicly available reference list inspired by the OWASP Top 10 — tailored specifically for automotive cybersecurity. This list aims to highlight the most commonly exploited and impactful vulnerabilities found across modern vehicle platforms, based on hands-on experience, practical testing, and community input.
+As part of the <b>AutoSecurityy</b> community initiative, we are building a publicly available reference list linked to the OWASP's Top 10 — tailored specifically for automotive cybersecurity. This list aims to highlight the most commonly exploited and impactful vulnerabilities found across modern vehicle platforms with technical details, based on hands-on experience, practical testing, and community input.
 
 ---
-No. | Vulnerability| Description
-----|----|----
-1|CAN Bus Injection via OBD-II or Exposed Lines|When vehicles lack authentication on CAN messages. Attackers can inject arbitrary frames via the OBD-II port or exposed in-vehicle wiring (e.g., behind lamps, infotainment units). This can lead to actions like unlocking doors, disabling braking systems, or spoofing sensor data.
-2|Remote Keyless Entry System (RKES) Attacks|Relay attacks, roll-jamming (blocking signal during lock), replaying recorded signals, and exploiting key fob weaknesses can enable unauthorized vehicle entry or start — even without physical key access. This is widely used in real-world vehicle thefts.
-3|Vulnerable API Endpoints in Connected Ecosystem|APIs exposed by mobile apps, telematics servers, or companion web apps often suffer from IDORs, poor session control, or token leakage. Exploiting these allows remote attackers to control vehicle functions (lock/unlock, start engine) or exfiltrate user data.
-4|Weak Authentication & Authorization in UDS Services|Improper implementation of UDS protocols (e.g., 0x27 SecurityAccess or 0x10 Session Control) allows unauthorized users to gain extended diagnostic privileges, erase memory, or reprogram ECUs without valid credentials or challenge-response validation.
-5|Insecure Wireless Interfaces (Bluetooth, Wi-Fi, TPMS, NFC)|Vehicles offer multiple wireless interfaces — often insecurely implemented. Weak pairing in Bluetooth, default Wi-Fi passwords, unencrypted TPMS signals, or NFC abuse can expose entry points for nearby attackers to inject commands or pivot deeper.
-6|Inadequate Cryptographic Key Management|Hardcoded symmetric keys, key reuse across fleets, or poor entropy in key generation leaves systems open to reverse engineering or brute-force attacks. Lack of secure key storage or HSMs makes recovery and message spoofing easier for attackers.
-7|Lack of Secure Boot & Firmware Validation|When ECUs boot unsigned or improperly verified firmware, attackers can inject malicious payloads that persist across reboots. Without chain-of-trust verification, even small ECUs become entry points for deeper compromise.
-8|Insecure OTA Update Mechanism|Many vehicles lack strong protections for software updates. Weak hash validation, absence of rollback protection, or use of plain-text channels allows attackers to install tampered firmware or downgrade to known vulnerable versions.
-9|Unprotected Debug Interfaces (UART, JTAG, SWD, etc.)|Exposed or unprotected low-level interfaces allow direct access to bootloaders, file systems, and runtime memory. Many ECUs ship with debug access left enabled, enabling firmware dumping, memory tampering, and bypassing protections.
-10|No Logging, Monitoring, or Anomaly Detection|Vehicles typically lack runtime intrusion detection or event logging. This allows sophisticated attacks to run unnoticed, whether through internal message injection, unexpected firmware behavior, or OTA abuse.
+No. | Vulnerability | Attack Example | Details
+----|----|----|----|
+1|Weak Vehicle Communication Protocols|CAN Bus Injection via OBD-II or Exposed Lines|When vehicles lack authentication on communications like CAN. Attackers can inject arbitrary frames via the OBD-II port or exposed in-vehicle wiring (e.g., behind lamps, infotainment units). This can lead to actions like unlocking doors, disabling braking systems, or spoofing sensor data.
+2|Insecure Over-the-Air (OTA) Updates|Rogue FW Injection due to lack of proper authentication & encryption|Many vehicles lack strong protections for software updates. Weak hash validation, absence of rollback protection, or use of plain-text channels allows attackers to install tampered firmware or downgrade to known vulnerable versions.
+3|Insecure Telematics Systems|Weak API security could access sensitive vehicle data or manipulate vehicle settings remotely.|APIs exposed by mobile apps, telematics servers, or companion web apps often suffer from IDORs, poor session control, or token leakage. Exploiting these allows remote attackers to control vehicle functions (lock/unlock, start engine) or exfiltrate user data.
+4|Software Supply Chain Vulnerabilities|Arbitraty code execution into Infotainment systems|Third-party software components lelies by systems like Infotainment systems, vehicle SW updates, and applications may have known vulnerabilities that can be exploited to gain access into the systems or run arbitrary code.
+5|Physical Access Exploits|Use of BadUSB, FW manipulation through USB & KiaBoys Hacks are few examples|Many attacks requires physical access to the vehicle to allow attackers to manipulate systems directly through interfaces like OBD-II & USB Ports, Settings in the Infotainment systems, or any other mean.
+6|Inadequate Access Control Mechanisms|Charging Card Cloaning, Unauthorized access to remote diagnostic or FOTA server|Weak or poorly implemented access control measures into mobile apps, V2X communications, EV charging infra, and remote diagnostics can allow unauthorized access to vehicle systems, user information and admin privilege functions.
+7|Poorly Implemented Authentication Mechanisms|Weak 0x27 security mechanism|Many automotive systems use weak authentication methods such as poor UDS security access mechanism, easily guessable passwords or hardcoded keys, making it easier for attackers to gain unauthorized access
+8|Data Leakage and Privacy Violations| | |
+9|Lack of Security in Integrated Systems| | |
+10|Insecure Legacy Systems| | |
 
 ## Do the Contributions
-We believe that with your experience and domain knowledge, your input would be incredibly valuable in refining this effort.
-+ Contribute to the project by filling this form: https://forms.gle/cPXnAUQ3WBhmyZ14A
-
+We believe that with your experience and domain knowledge, your input for examples & details would be incredibly valuable in refining this effort.
++ Referece: https://cheatsheetseries.owasp.org/cheatsheets/Automotive_Security.html
 
